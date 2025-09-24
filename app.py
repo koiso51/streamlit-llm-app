@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 import streamlit as st
 
@@ -6,8 +10,18 @@ st.title("サンプルアプリ: 専門家アドバイザーアプリ")
 st.write("##### 質問に対する適切な専門家からのアドバイス")
 st.write("質問したい領域と相談内容を入力することで、適切な専門家からのアドバイスを受けることができます。")
 
+selected_item = st.radio(
+    "領域を選択してください。",
+    ["健康に関するアドバイス", "仕事に関するアドバイス"]
+)
 
 
+from openai import OpenAI
+
+# OpenAIクライアントの初期化
+client = OpenAI()
+
+st.divider()
 if selected_item == "健康に関するアドバイス":
     input_message = st.text_input(label="相談内容を入力してください。")
     text_count = len(input_message)
