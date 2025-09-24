@@ -24,39 +24,38 @@ if st.button("実行"):
     st.divider()
 
     if selected_item == "健康に関するアドバイス":
-first_completion = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-        {
-            "role": "system",
-            "content": "あなたは優秀な医者です。"
-        },
-        {
-            "role": "user",
-            "content": input_message
-        }
-    ],
-    temperature=0.5
-)
+        first_completion = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "あなたは優秀な医者です。"
+                },
+                {
+                    "role": "user",
+                    "content": input_message
+                }
+            ],
+            temperature=0.5
+        )
 
         st.write("### 回答")
         st.write(first_completion.choices[0].message.content)
 
-if selected_item == "仕事に関するアドバイス":
-      first_completion = client.chat.completions.create(
-first_completion = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-        {
-            "role": "system",
-            "content": "あなたは優秀なキャリアコンサルタントです。"
-        },
-        {
-            "role": "user",
-            "content": input_message
-        }
-    ],
-    temperature=0.5
-)
+    if selected_item == "仕事に関するアドバイス":
+        first_completion = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "あなたは優秀なキャリアコンサルタントです。"
+                },
+                {
+                    "role": "user",
+                    "content": input_message
+                }
+            ],
+            temperature=0.5
+        )
         st.write("### 回答")
         st.write(first_completion.choices[0].message.content)
