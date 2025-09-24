@@ -1,0 +1,62 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+import streamlit as st
+
+st.title("サンプルアプリ: 専門家アドバイザーアプリ")
+
+st.write("##### 質問に対する適切な専門家からのアドバイス")
+st.write("質問したい領域と相談内容を入力することで、適切な専門家からのアドバイスを受けることができます。")
+
+
+
+if selected_item == "健康に関するアドバイス":
+    input_message = st.text_input(label="相談内容を入力してください。")
+    text_count = len(input_message)
+
+if selected_item == "仕事に関するアドバイス":
+    input_message = st.text_input(label="相談内容を入力してください。")
+    text_count = len(input_message)
+
+if st.button("実行"):
+    st.divider()
+
+    if selected_item == "健康に関するアドバイス":
+first_completion = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {
+            "role": "system",
+            "content": "あなたは優秀な医者です。"
+        },
+        {
+            "role": "user",
+            "content": input_message
+        }
+    ],
+    temperature=0.5
+)
+
+        st.write("### 回答")
+        st.write(first_completion.choices[0].message.content)
+
+if selected_item == "仕事に関するアドバイス":
+      first_completion = client.chat.completions.create(
+first_completion = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {
+            "role": "system",
+            "content": "あなたは優秀なキャリアコンサルタントです。"
+        },
+        {
+            "role": "user",
+            "content": input_message
+        }
+    ],
+    temperature=0.5
+)
+        st.write("### 回答")
+        st.write(first_completion.choices[0].message.content)
