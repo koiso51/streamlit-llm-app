@@ -8,7 +8,6 @@ from openai import OpenAI
 llm = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
-
 st.title("サンプルアプリ: 専門家アドバイザーアプリ")
 
 st.write("##### 質問に対する適切な専門家からのアドバイス")
