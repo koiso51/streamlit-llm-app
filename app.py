@@ -1,3 +1,5 @@
+import streamlit as st
+
 from dotenv import load_dotenv
 load_dotenv()
 # from langchain.chat_models import ChatOpenAI
@@ -6,7 +8,6 @@ from openai import OpenAI
 llm = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
-import streamlit as st
 
 st.title("サンプルアプリ: 専門家アドバイザーアプリ")
 
@@ -18,8 +19,6 @@ selected_item = st.radio(
     ["健康に関するアドバイス", "仕事に関するアドバイス"]
 )
 
-
-from openai import OpenAI
 
 # OpenAIクライアントの初期化
 client = OpenAI()
